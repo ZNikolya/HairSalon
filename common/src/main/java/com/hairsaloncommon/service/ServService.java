@@ -1,6 +1,5 @@
 package com.hairsaloncommon.service;
 
-import com.hairsaloncommon.repository.ServiceRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -8,5 +7,4 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class ServService {
 
-    private final ServiceRepository serviceRepo;
 }
