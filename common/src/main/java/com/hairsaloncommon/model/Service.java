@@ -6,13 +6,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "services")
+@Table(name = "service")
 
 public class Service {
 
@@ -22,5 +23,7 @@ public class Service {
     private String name;
     private String description;
     private double price;
+    @ManyToMany(mappedBy = "service", fetch = FetchType.LAZY)
+    private List<Worker> workers;
 
 }
