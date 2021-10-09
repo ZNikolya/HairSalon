@@ -1,6 +1,6 @@
 package com.hairsaloncommon.model;
 
-public enum  Gender {
+public enum Gender {
 
     MALE,
     FEMALE

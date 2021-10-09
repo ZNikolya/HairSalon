@@ -14,20 +14,21 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "hairdressers")
+@Table(name = "worker")
 
-public class Hairdresser {
+public class Worker {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String surname;
-    private String pictures;
+    private String phoneNumber;
+    private String gallery;
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinTable(name = "services_hairdressers",
+    @JoinTable(name = "worker_service",
             joinColumns = {
-                    @JoinColumn(name = "hairdressers_id", referencedColumnName = "id",
+                    @JoinColumn(name = "worker_id", referencedColumnName = "id",
                             nullable = false, updatable = false)},
             inverseJoinColumns = {
                     @JoinColumn(name = "service_id", referencedColumnName = "id",

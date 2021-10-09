@@ -2,8 +2,8 @@ package com.example.hairsalonweb.controller;
 
 import com.example.hairsalonweb.security.CurrentUser;
 import com.hairsaloncommon.model.Gender;
-import com.hairsaloncommon.model.Role;
 import com.hairsaloncommon.model.User;
+import com.hairsaloncommon.model.UserType;
 import com.hairsaloncommon.service.EmailService;
 import com.hairsaloncommon.service.UserService;
 import com.hairsaloncommon.webDto.UserDto;
@@ -103,13 +103,13 @@ public class MainController {
             return "redirect:/";
         }
         User user = currentUser.getUser();
-        if (user.getRole() == Role.ADMIN) {
+        if (user.getUserType() == UserType.ADMIN) {
             return "redirect:/adminPage";
         }
-        if (user.getRole() == Role.MANAGER) {
+        if (user.getUserType() == UserType.MANAGER) {
             return "redirect:/managerPage";
         }
-        if (user.getRole() == Role.USER) {
+        if (user.getUserType() == UserType.USER) {
             return "redirect:/userPage";
         }
         return "home";

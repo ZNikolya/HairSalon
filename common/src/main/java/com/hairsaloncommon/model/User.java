@@ -23,20 +23,14 @@ public class User {
     private int id;
     private String name;
     private String surname;
-    private String mainPhoto;
     @Enumerated(value = EnumType.STRING)
     @Column(columnDefinition = "enum('MALE','FEMALE')")
     private Gender gender;
-    @Enumerated(value = EnumType.STRING)
-    @Column(columnDefinition = "enum('ADMIN','MANAGER','USER')")
-    private Role role;
-    private String city;
-    private String phoneNumber;
     private String email;
-    private String username;
     private String password;
-    private boolean active;
-    private String token;
+    @Enumerated(value = EnumType.STRING)
+    @Column(columnDefinition = "enum('CLIENT','ADMIN')")
+    private UserType userType;
 
 
 

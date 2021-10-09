@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -20,14 +19,8 @@ public class Service {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String title;
+    private String name;
+    private String description;
     private double price;
-    private String userTypeService;
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<User> manager;
-    @ManyToMany(mappedBy = "services", fetch = FetchType.LAZY)
-    private List<Hairdresser> hairdressers ;
-
-
 
 }

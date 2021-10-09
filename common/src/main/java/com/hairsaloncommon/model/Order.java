@@ -15,21 +15,19 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "orders")
+@Table(name = "order")
 public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<User> manager;
-    private Date date;
-    private String time;
+    private Date startDatetime;
+    private Date endDatetime;
     @OneToMany(fetch = FetchType.LAZY)
     private List<Service> services;
     @OneToMany(fetch = FetchType.LAZY)
-    private List<Hairdresser> hairdressers;
-    @OneToMany(fetch = FetchType.LAZY)
     private List<User> users;
-    private String phoneNumber;
+
+    @ManyToOne
+    private User user;
 }

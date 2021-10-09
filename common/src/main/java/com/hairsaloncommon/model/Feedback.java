@@ -1,27 +1,29 @@
 package com.hairsaloncommon.model;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "pictures")
+@Table(name = "feedback")
 
-public class Pictures {
+public class Feedback {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String photo;
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<User> user;
-
+    @ManyToOne
+    private User user;
+    @ManyToOne
+    private Worker worker;
+    private int rate;
+    private String message;
 }
